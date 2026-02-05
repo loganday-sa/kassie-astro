@@ -1,0 +1,10 @@
+# robots.txt for kassiearmbruster.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://kassiearmbruster.com/sitemap.xml
+
+# Crawl-delay (optional, be friendly to crawlers)
+Crawl-delay: 1

@@ -6,9 +6,112 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title: string;
   description?: string;
+  image?: string;
 }
 
-const { title, description = "Kassie Armbruster, OTR/L - Expert CranioSacral Therapy and Occupational Therapy in Akron, Ohio. 20+ years of experience in holistic healing." } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, 'https://kassiearmbruster.com');
+const {
+  title,
+  description = "Kassie Armbruster, OTR/L - Expert CranioSacral Therapy and Occupational Therapy in Akron, Ohio. Serving Summit County, Cuyahoga Falls, Stow, Hudson, and surrounding areas. 20+ years of experience in holistic healing.",
+  image = "/images/headshot-1.png"
+} = Astro.props;
+
+// LocalBusiness Schema for SEO
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "HealthAndBeautyBusiness",
+  "name": "Kassie Armbruster, LLC",
+  "description": "Expert CranioSacral Therapy, Occupational Therapy, and holistic healing services in Akron, Ohio.",
+  "url": "https://kassiearmbruster.com",
+  "logo": "https://kassiearmbruster.com/images/headshot-1.png",
+  "image": "https://kassiearmbruster.com/images/headshot-1.png",
+  "telephone": "",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Akron",
+    "addressRegion": "OH",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "41.0814",
+    "longitude": "-81.5190"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Akron", "sameAs": "https://en.wikipedia.org/wiki/Akron,_Ohio" },
+    { "@type": "City", "name": "Cuyahoga Falls" },
+    { "@type": "City", "name": "Stow" },
+    { "@type": "City", "name": "Hudson" },
+    { "@type": "City", "name": "Fairlawn" },
+    { "@type": "City", "name": "Tallmadge" },
+    { "@type": "City", "name": "Barberton" },
+    { "@type": "City", "name": "Green" },
+    { "@type": "City", "name": "Copley" },
+    { "@type": "City", "name": "Bath" },
+    { "@type": "AdministrativeArea", "name": "Summit County" }
+  ],
+  "priceRange": "$50-$150",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "09:00",
+    "closes": "18:00"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Therapeutic Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "CranioSacral Therapy",
+          "description": "Gentle, hands-on therapy to release tensions and improve whole-body health"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Occupational Therapy",
+          "description": "Therapeutic interventions to improve daily functioning and quality of life"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Myofascial Release",
+          "description": "Manual therapy targeting fascial restrictions for pain relief"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "In-Home Sessions",
+          "description": "Convenient therapeutic sessions in your home throughout the Akron area"
+        }
+      }
+    ]
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Kassie Armbruster",
+    "jobTitle": "Occupational Therapist, Licensed Massage Therapist",
+    "description": "OTR/L, COTA/L, LMT with 20+ years of healthcare experience",
+    "hasCredential": [
+      { "@type": "EducationalOccupationalCredential", "credentialCategory": "license", "name": "OTR/L - Occupational Therapist, Registered" },
+      { "@type": "EducationalOccupationalCredential", "credentialCategory": "license", "name": "COTA/L - Certified Occupational Therapy Assistant" },
+      { "@type": "EducationalOccupationalCredential", "credentialCategory": "license", "name": "LMT - Licensed Massage Therapist" }
+    ],
+    "memberOf": [
+      { "@type": "Organization", "name": "American Occupational Therapy Association (AOTA)" },
+      { "@type": "Organization", "name": "American Massage Therapy Association (AMTA)" },
+      { "@type": "Organization", "name": "Upledger Institute" }
+    ]
+  }
+};
 ---
 
 <!doctype html>
@@ -17,11 +120,43 @@ const { title, description = "Kassie Armbruster, OTR/L - Expert CranioSacral The
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Geo Tags for Local SEO -->
+    <meta name="geo.region" content="US-OH" />
+    <meta name="geo.placename" content="Akron" />
+    <meta name="geo.position" content="41.0814;-81.5190" />
+    <meta name="ICBM" content="41.0814, -81.5190" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`https://kassiearmbruster.com${image}`} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Kassie Armbruster, LLC" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`https://kassiearmbruster.com${image}`} />
+
+    <!-- Additional SEO -->
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Kassie Armbruster, OTR/L" />
+    <meta name="keywords" content="CranioSacral Therapy Akron, Occupational Therapy Akron Ohio, massage therapy Summit County, holistic healing Cuyahoga Falls, myofascial release Stow, craniosacral therapist Hudson OH, in-home therapy Fairlawn, pain relief therapy Tallmadge" />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
     <title>{title}</title>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
   </head>
   <body>
     <Navigation />
