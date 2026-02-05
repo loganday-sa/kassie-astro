@@ -6,13 +6,18 @@ import Layout from '../layouts/Layout.astro';
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
-      <div class="hero-content">
-        <div style="display: inline-block; padding: 0.5rem 1rem; background-color: rgba(44, 122, 123, 0.1); border-radius: 999px; color: #2C7A7B; font-size: 0.875rem; margin-bottom: 1rem;">
-          Your Wellness Journey
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+        <div class="hero-content">
+          <div style="display: inline-block; padding: 0.5rem 1rem; background-color: rgba(44, 122, 123, 0.1); border-radius: 999px; color: #2C7A7B; font-size: 0.875rem; margin-bottom: 1rem;">
+            Your Wellness Journey
+          </div>
+          <h2 class="hero-title">Transform Your Health Through Compassionate, Expert Care</h2>
+          <p class="hero-subtitle">Discover how CranioSacral Therapy and holistic healing can help you achieve lasting relief and improved quality of life</p>
+          <a href="#benefits" class="btn-primary btn-large">Explore the Benefits</a>
         </div>
-        <h2 class="hero-title">Transform Your Health Through Compassionate, Expert Care</h2>
-        <p class="hero-subtitle">Discover how CranioSacral Therapy and holistic healing can help you achieve lasting relief and improved quality of life</p>
-        <a href="#benefits" class="btn-primary btn-large">Explore the Benefits</a>
+        <div class="hero-image">
+          <img src="/images/scrubs-1.png" alt="Kassie Armbruster in professional clinical setting" style="border-radius: 12px; width: 100%; height: auto;">
+        </div>
       </div>
     </div>
   </section>
