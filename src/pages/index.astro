@@ -11,7 +11,7 @@ import Layout from '../layouts/Layout.astro';
         <p class="hero-subtitle">Specializing in CranioSacral Therapy, Occupational Therapy, and Complementary Healing Modalities</p>
         <p class="hero-description">With over 20 years of experience, I help clients achieve pain relief, improved mobility, and enhanced well-being through evidence-based therapeutic techniques.</p>
         <div class="hero-cta">
-          <a href="#contact" class="btn-primary btn-large">Schedule Your Session</a>
+          <a href="#contact" class="btn-primary btn-large">Get Started</a>
           <a href="#services" class="btn-secondary btn-large">Learn More</a>
         </div>
         <div class="hero-trust">
@@ -174,45 +174,29 @@ import Layout from '../layouts/Layout.astro';
     <div class="container">
       <div class="contact-wrapper">
         <div class="contact-info">
-          <h2>Schedule Your Appointment</h2>
-          <p class="lead">Take the first step toward better health and wellness</p>
-
-          <div class="contact-methods">
-            <div class="contact-method">
-              <div class="method-icon">&#x1F4DE;</div>
-              <div class="method-details">
-                <h4>Phone</h4>
-                <a href="tel:216-438-1399">(216) 438-1399</a>
-                <p>Call for appointments or questions</p>
-              </div>
-            </div>
-            <div class="contact-method">
-              <div class="method-icon">&#x2709;&#xFE0F;</div>
-              <div class="method-details">
-                <h4>Email</h4>
-                <a href="mailto:armbrusterk1@hotmail.com">armbrusterk1@hotmail.com</a>
-                <p>Send a message anytime</p>
-              </div>
-            </div>
-            <div class="contact-method">
-              <div class="method-icon">&#x1F4CD;</div>
-              <div class="method-details">
-                <h4>Location</h4>
-                <p>Dayton, Ohio</p>
-                <p>In-home sessions available</p>
-              </div>
-            </div>
-          </div>
+          <h2>Get in Touch</h2>
+          <p class="lead">Whether you're ready to schedule a session or have questions, I'd love to hear from you</p>
 
           <div class="hours-section">
-            <h3>Availability</h3>
-            <p>Flexible scheduling available to accommodate your needs. Contact me to discuss appointment times that work best for you.</p>
+            <h3>&#x1F4CD; Location & Availability</h3>
+            <p>Based in <strong>Akron, Ohio</strong> with in-home sessions available for your comfort and convenience.</p>
+            <p>Flexible scheduling to accommodate your needs. Use the form to get in touch and we'll find a time that works for you.</p>
           </div>
         </div>
 
         <div class="contact-form-wrapper">
-          <form class="contact-form" id="contactForm">
-            <h3>Request an Appointment</h3>
+          <form class="contact-form" id="contactForm" action="https://formspree.io/f/xaqdwpjr" method="POST">
+            <h3>Send a Message</h3>
+            <div class="form-group">
+              <label for="reason">How can I help? *</label>
+              <select id="reason" name="reason" required>
+                <option value="">Select a reason</option>
+                <option value="schedule">Schedule an appointment</option>
+                <option value="question">Ask a question about services</option>
+                <option value="consultation">Request a consultation</option>
+                <option value="other">Other inquiry</option>
+              </select>
+            </div>
             <div class="form-group">
               <label for="name">Full Name *</label>
               <input type="text" id="name" name="name" required />
@@ -222,13 +206,13 @@ import Layout from '../layouts/Layout.astro';
               <input type="email" id="email" name="email" required />
             </div>
             <div class="form-group">
-              <label for="phone">Phone *</label>
-              <input type="tel" id="phone" name="phone" required />
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="Optional" />
             </div>
             <div class="form-group">
-              <label for="service">Preferred Service</label>
+              <label for="service">Service of Interest</label>
               <select id="service" name="service">
-                <option value="">Select a service</option>
+                <option value="">Select a service (optional)</option>
                 <option value="craniosacral">CranioSacral Therapy</option>
                 <option value="somatoemotional">Somatoemotional Release</option>
                 <option value="visceral">Visceral Manipulation</option>
@@ -237,11 +221,17 @@ import Layout from '../layouts/Layout.astro';
               </select>
             </div>
             <div class="form-group">
-              <label for="message">Message/Questions</label>
-              <textarea id="message" name="message" rows="4" placeholder="Tell me about your concerns or what you'd like to address..."></textarea>
+              <label for="message">Your Message *</label>
+              <textarea id="message" name="message" rows="4" placeholder="Tell me how I can help you..." required></textarea>
             </div>
-            <button type="submit" class="btn-primary btn-large">Send Request</button>
-            <p class="form-note">I'll respond within 24 hours to schedule your appointment.</p>
+            <div class="form-group form-checkbox">
+              <label>
+                <input type="checkbox" name="privacy_consent" required />
+                I agree to the <a href="/privacy" target="_blank">Privacy Policy</a>
+              </label>
+            </div>
+            <button type="submit" class="btn-primary btn-large">Send Message</button>
+            <p class="form-note">I'll respond within 24 hours.</p>
           </form>
         </div>
       </div>

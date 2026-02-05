@@ -534,8 +534,16 @@ section {
 
 .contact-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 3fr;
     gap: var(--spacing-2xl);
+    align-items: start;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
 }
 
 .contact-info h2 {
@@ -588,7 +596,7 @@ section {
 }
 
 .hours-section {
-    margin-top: var(--spacing-xl);
+    margin-top: var(--spacing-lg);
     padding: var(--spacing-lg);
     background-color: var(--background);
     border-radius: var(--border-radius);
@@ -650,6 +658,29 @@ section {
 
 .form-group textarea {
     resize: vertical;
+}
+
+.form-checkbox label {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.form-checkbox input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+    cursor: pointer;
+}
+
+.form-checkbox a {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.form-checkbox a:hover {
+    color: var(--primary-dark);
 }
 
 .contact-form .btn-primary {

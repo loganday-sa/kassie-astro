@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Health Disclaimer | Kassie Armbruster, LLC">
+  <section class="legal-page">
+    <div class="container">
+      <h1>Health Disclaimer</h1>
+      <p class="last-updated">Last Updated: February 2025</p>
+
+      <div class="legal-content">
+        <h2>General Information</h2>
+        <p>The information provided on this website is for general informational purposes only. It is not intended to be a substitute for professional medical advice, diagnosis, or treatment.</p>
+
+        <h2>Not Medical Advice</h2>
+        <p>The content on this website, including text, graphics, and other materials, is provided for informational purposes only and does not constitute medical advice. Always seek the advice of your physician or other qualified healthcare provider with any questions you may have regarding a medical condition.</p>
+
+        <h2>No Provider-Patient Relationship</h2>
+        <p>Viewing this website or submitting a contact form does not establish a provider-patient relationship. A professional relationship is only formed after:</p>
+        <ul>
+          <li>An in-person or telehealth consultation has occurred</li>
+          <li>Proper intake documentation has been completed</li>
+          <li>Both parties have agreed to proceed with care</li>
+        </ul>
+
+        <h2>Therapeutic Services</h2>
+        <p>CranioSacral Therapy, massage therapy, and other complementary modalities offered are intended to complement, not replace, conventional medical care. These services are not intended to diagnose, treat, cure, or prevent any disease or medical condition.</p>
+
+        <h2>Individual Results</h2>
+        <p>Results from therapeutic services vary from person to person. No specific outcomes or results are guaranteed. The information on this website about potential benefits is based on general experience and should not be interpreted as a promise of specific results.</p>
+
+        <h2>Emergency Situations</h2>
+        <p>If you are experiencing a medical emergency, please call 911 or go to your nearest emergency room immediately. Do not use this website or contact form for urgent medical needs.</p>
+
+        <h2>Professional Credentials</h2>
+        <p>Kassie Armbruster is a licensed healthcare professional in the State of Ohio:</p>
+        <ul>
+          <li>Occupational Therapist, Registered (OTR/L)</li>
+          <li>Certified Occupational Therapy Assistant (COTA/L) - License #05150</li>
+          <li>Licensed Massage Therapist (LMT)</li>
+        </ul>
+
+        <h2>Questions</h2>
+        <p>If you have questions about the services offered or whether they may be appropriate for your situation, please <a href="/#contact">contact us</a> to schedule a consultation.</p>
+
+        <div class="legal-note">
+          <p><strong>By using this website,</strong> you acknowledge that you have read and understood this disclaimer and agree to its terms.</p>
+        </div>
+      </div>
+
+      <a href="/" class="btn-secondary">Back to Home</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal-page {
+    padding: var(--spacing-3xl) 0;
+  }
+
+  .legal-page h1 {
+    color: var(--primary-dark);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .last-updated {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .legal-content {
+    max-width: 800px;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .legal-content h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .legal-content p,
+  .legal-content li {
+    color: var(--text-primary);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .legal-content ul {
+    margin-left: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .legal-content li {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .legal-note {
+    background-color: var(--background-alt);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    margin-top: var(--spacing-xl);
+  }
+
+  .legal-note p {
+    margin: 0;
+  }
+</style>
