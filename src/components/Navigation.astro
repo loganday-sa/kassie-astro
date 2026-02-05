@@ -1,0 +1,176 @@
+---
+// Navigation component
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="navbar">
+  <div class="container">
+    <a href="/" class="nav-brand">
+      <h1>Kassie Armbruster, LLC</h1>
+      <p class="credentials">OTR/L, COTA/L, LMT</p>
+    </a>
+    <ul class="nav-menu" id="nav-menu">
+      <li><a href="/#about" class={currentPath === '/' ? 'active' : ''}>About</a></li>
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/what-to-expect" class={currentPath === '/what-to-expect/' ? 'active' : ''}>What to Expect</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/#contact" class="btn-primary">Book Appointment</a></li>
+    </ul>
+    <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    background-color: #FFFFFF;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 0;
+  }
+
+  .navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .nav-brand {
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .nav-brand:hover h1 {
+    color: #2C7A7B;
+  }
+
+  .nav-brand h1 {
+    font-size: 1.5rem;
+    color: #1F5456;
+    margin-bottom: 0;
+    transition: all 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+  }
+
+  .nav-brand .credentials {
+    font-size: 0.875rem;
+    color: #4A5568;
+    margin: 0;
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-menu a:not(.btn-primary) {
+    color: #2D3748;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .nav-menu a:not(.btn-primary):hover,
+  .nav-menu a:not(.btn-primary).active {
+    color: #2C7A7B;
+  }
+
+  .nav-menu .btn-primary {
+    background-color: #2C7A7B;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .nav-menu .btn-primary:hover {
+    background-color: #1F5456;
+    transform: translateY(-2px);
+  }
+
+  .mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: #2C7A7B;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    .nav-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: #FFFFFF;
+      flex-direction: column;
+      padding: 1.5rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      gap: 0;
+    }
+
+    .nav-menu.active {
+      display: flex;
+    }
+
+    .nav-menu li {
+      width: 100%;
+      text-align: center;
+      padding: 1rem 0;
+      border-bottom: 1px solid #E2E8F0;
+    }
+
+    .nav-menu li:last-child {
+      border-bottom: none;
+    }
+
+    .nav-menu .btn-primary {
+      width: 90%;
+      margin: 1rem auto;
+      display: block;
+    }
+
+    .mobile-menu-toggle {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
+
+  mobileMenuToggle?.addEventListener('click', () => {
+    navMenu?.classList.toggle('active');
+    mobileMenuToggle.classList.toggle('active');
+  });
+</script>
