@@ -448,19 +448,45 @@ section {
 
 .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-lg);
     margin-bottom: var(--spacing-xl);
+}
+
+/* For very large screens, show all 5 in one row */
+@media (min-width: 1400px) {
+    .pricing-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* Tablet view - 2 columns */
+@media (max-width: 900px) {
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile view - 1 column */
+@media (max-width: 600px) {
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .pricing-card {
     background-color: var(--background);
     border: 2px solid var(--border-color);
     border-radius: var(--border-radius-lg);
-    padding: var(--spacing-xl);
+    padding: var(--spacing-lg);
     text-align: center;
     transition: var(--transition);
     position: relative;
+    min-width: 0; /* Prevent overflow */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 320px; /* Ensure consistent minimum height */
 }
 
 .pricing-card:hover {
@@ -492,24 +518,35 @@ section {
 .pricing-card h3 {
     color: var(--primary-dark);
     margin-bottom: var(--spacing-md);
+    flex-shrink: 0; /* Prevent title from shrinking */
 }
 
 .price {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
     color: var(--primary-color);
     margin: var(--spacing-md) 0;
     font-family: 'Montserrat', sans-serif;
+    flex-shrink: 0; /* Prevent price from shrinking */
+}
+
+/* Adjust price size on very large screens */
+@media (min-width: 1400px) {
+    .price {
+        font-size: 2.25rem;
+    }
 }
 
 .pricing-card p {
     color: var(--text-secondary);
     margin-bottom: var(--spacing-lg);
+    flex-grow: 1; /* Make description fill available space */
 }
 
 .pricing-card .btn-primary,
 .pricing-card .btn-outline {
     width: 100%;
+    margin-top: auto; /* Push button to bottom */
 }
 
 .pricing-note {
@@ -797,9 +834,6 @@ section {
         grid-template-columns: 1fr;
     }
 
-    .pricing-grid {
-        grid-template-columns: 1fr;
-    }
 
     section {
         padding: var(--spacing-2xl) 0;
